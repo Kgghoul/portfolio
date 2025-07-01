@@ -2,18 +2,41 @@
 <html lang="">
   <head>
     <meta charset="UTF-8">
+    <script>
+      // IMMEDIATE redirect to hash router - BEFORE anything else loads
+      (function() {
+        var path = window.location.pathname;
+        var hash = window.location.hash;
+        var search = window.location.search;
+        
+        console.log('Current path:', path, 'hash:', hash);
+        
+        // If we're on /portfolio/ and no hash, redirect to #/
+        if (path === '/portfolio/' && (!hash || hash === '')) {
+          console.log('Redirecting to hash route');
+          window.location.replace(window.location.origin + '/portfolio/#/');
+          return;
+        }
+        
+        // If we're on /portfolio and no trailing slash
+        if (path === '/portfolio' && (!hash || hash === '')) {
+          window.location.replace(window.location.origin + '/portfolio/#/');
+          return;
+        }
+        
+        // If we're on /portfolio/gallery, redirect to hash version
+        if (path === '/portfolio/gallery' || path === '/portfolio/gallery/') {
+          window.location.replace(window.location.origin + '/portfolio/#/gallery');
+          return;
+        }
+      })();
+    </script>
     <link rel="icon" href="/favicon.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
   </head>
   <body>
     <div id="app"></div>
-    <script>
-      // Auto-redirect to hash router if no hash present
-      if (window.location.hash === '' && window.location.pathname.endsWith('/portfolio/')) {
-        window.location.hash = '#/';
-      }
-    </script>
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>
