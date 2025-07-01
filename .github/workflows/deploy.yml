@@ -29,17 +29,18 @@ jobs:
           node-version: "20"
           cache: "npm"
 
-      - name: Clear npm cache
-        run: npm cache clean --force
+      - name: Clear npm cache and lock file
+        run: |
+          npm cache clean --force
+          rm -f package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
       - name: Build project
         run: npm run build
         env:
           NODE_ENV: production
-          NODE_OPTIONS: "--experimental-modules"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
