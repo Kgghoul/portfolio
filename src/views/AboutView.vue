@@ -659,7 +659,7 @@ const translations = {
   .about-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    padding-top: 90px;
+    padding-top: 140px;
     gap: 0;
   }
   
@@ -811,7 +811,7 @@ const translations = {
   }
   
   .about-content {
-    padding-top: 100px;
+    padding-top: 150px;
   }
   
   .left-section {
