@@ -371,7 +371,7 @@ const translations = {
     gap: 3rem;
     padding: 2rem 1.5rem;
     max-width: 100%;
-    margin-top: 4rem;
+    margin-top: 6rem;
   }
   
   .hero-buttons {
@@ -444,7 +444,7 @@ const translations = {
   .hero-content {
     gap: 2.5rem;
     padding: 1.5rem 1rem;
-    margin-top: 3.5rem;
+    margin-top: 5.5rem;
   }
   
   .hero-buttons {
@@ -516,7 +516,7 @@ const translations = {
   .hero-content {
     padding: 1rem 0.8rem;
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 5rem;
   }
   
   .hero-buttons {
@@ -592,7 +592,7 @@ const translations = {
   .hero-content {
     padding: 0.8rem 0.5rem;
     gap: 1.8rem;
-    margin-top: 2.5rem;
+    margin-top: 4.5rem;
   }
   
   .hero-buttons {
