@@ -371,7 +371,7 @@ const translations = {
     gap: 3rem;
     padding: 2rem 1.5rem;
     max-width: 100%;
-    margin-top: 6rem;
+    margin-top: 9rem;
   }
   
   .hero-buttons {
