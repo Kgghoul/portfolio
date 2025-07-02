@@ -1,6 +1,8 @@
 <script setup>
 import { inject } from 'vue'
-import wallpaperImage from '@/assets/wallpaper.jpeg'
+import frontendIcon from '@/assets/user-experience.png'
+import backendIcon from '@/assets/software.png'
+// Background image is loaded via CSS url()
 
 const { isEnglish } = inject('language')
 
@@ -31,7 +33,11 @@ const translations = {
     },
     bestProject: 'Лучший проект',
     projectDesc: 'Платформа для улучшения промтов с ИИ',
-    contacts: 'Контакты'
+    contacts: 'Контакты',
+    frontendDev: 'Frontend',
+    frontendDevSub: 'Разработчик',
+    backendDev: 'Backend',
+    backendDevSub: 'Разработчик'
   },
   en: {
     aboutTitle: 'About',
@@ -59,7 +65,11 @@ const translations = {
     },
     bestProject: 'Best Project',
     projectDesc: 'Platform for improving prompts with AI',
-    contacts: 'Contacts'
+    contacts: 'Contacts',
+    frontendDev: 'Frontend',
+    frontendDevSub: 'Developer',
+    backendDev: 'Backend',
+    backendDevSub: 'Developer'
   }
 }
 </script>
@@ -172,46 +182,113 @@ const translations = {
         </div>
         <div class="contact-section">
           <h3>{{ isEnglish ? translations.en.contacts : translations.ru.contacts }}</h3>
-                    <div class="example-2">
-            <div class="icon-content">
-              <a href="https://www.linkedin.com/in/karim-kassymkhanov-b753b8372" target="_blank" data-social="linkedin">
-                <div class="filled"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
-                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
-                </svg>
-              </a>
-              <div class="tooltip">LinkedIn</div>
+          <div class="team-contacts">
+            <div class="developer-card">
+              <div class="dev-info">
+                <div class="dev-avatar">
+                  <img :src="frontendIcon" alt="Frontend Developer" class="dev-icon">
+                </div>
+                <h4 class="dev-name">
+                  {{ isEnglish ? translations.en.frontendDev : translations.ru.frontendDev }}<br>
+                  <span class="dev-subtitle">{{ isEnglish ? translations.en.frontendDevSub : translations.ru.frontendDevSub }}</span>
+                </h4>
+                <p class="dev-role">Vue.js • JavaScript • UI/UX</p>
+              </div>
+              <div class="dev-contacts">
+                <div class="contact-item">
+                  <a href="https://www.linkedin.com/in/karim-kassymkhanov-b753b8372" target="_blank" data-social="linkedin">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                    </svg>
+                    <span class="contact-tooltip">LinkedIn</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="https://github.com/Kgghoul" target="_blank" data-social="github">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg>
+                    <span class="contact-tooltip">GitHub</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="mailto:daniilkarimtech@gmail.com" data-social="email">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                    </svg>
+                    <span class="contact-tooltip">Email</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="https://t.me/nextgeneng" target="_blank" data-social="telegram">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+                    </svg>
+                    <span class="contact-tooltip">Telegram</span>
+                  </a>
+                </div>
+              </div>
             </div>
-            <div class="icon-content">
-              <a href="https://github.com/Kgghoul" target="_blank" data-social="github">
-                <div class="filled"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
-                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
-                </svg>
-              </a>
-              <div class="tooltip">GitHub</div>
-            </div>
-            <div class="icon-content">
-              <a href="mailto:daniilkarimtech@gmail.com" data-social="email">
-                <div class="filled"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                  <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
-                </svg>
-              </a>
-              <div class="tooltip">Email</div>
-            </div>
-            <div class="icon-content">
-              <a href="https://t.me/nextgeneng" target="_blank" data-social="telegram">
-                <div class="filled"></div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
-                  <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.23c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
-                </svg>
-              </a>
-              <div class="tooltip">Telegram</div>
+
+            <div class="developer-card">
+              <div class="dev-info">
+                <div class="dev-avatar">
+                  <img :src="backendIcon" alt="Backend Developer" class="dev-icon">
+                </div>
+                <h4 class="dev-name">
+                  {{ isEnglish ? translations.en.backendDev : translations.ru.backendDev }}<br>
+                  <span class="dev-subtitle">{{ isEnglish ? translations.en.backendDevSub : translations.ru.backendDevSub }}</span>
+                </h4>
+                <p class="dev-role">Go • PostgreSQL • Docker</p>
+              </div>
+              <div class="dev-contacts">
+                <div class="contact-item">
+                  <a href="https://www.linkedin.com/in/daniil-z-6331a1346?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app" target="_blank" data-social="linkedin">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-linkedin" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854zm4.943 12.248V6.169H2.542v7.225zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248S2.4 3.226 2.4 3.934c0 .694.521 1.248 1.327 1.248zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225z"/>
+                    </svg>
+                    <span class="contact-tooltip">LinkedIn</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="https://github.com/daniilzaj" target="_blank" data-social="github">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/>
+                    </svg>
+                    <span class="contact-tooltip">GitHub</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="mailto:daniilkarimtech@gmail.com" data-social="email">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+                    </svg>
+                    <span class="contact-tooltip">Email</span>
+                  </a>
+                </div>
+                <div class="contact-item">
+                  <a href="https://t.me/dnlzjfrt" target="_blank" data-social="telegram">
+                    <div class="contact-filled"></div>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-telegram" viewBox="0 0 16 16">
+                      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.287 5.906q-1.168.486-4.666 2.01-.567.225-.595.442c-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294q.39.01.868-.32 3.269-2.206 3.374-2.30c.05-.012.12-.026.166.016s.042.12.037.141c-.03.129-1.227 1.241-1.846 1.817-.193.18-.33.307-.358.336a8 8 0 0 1-.188.186c-.38.366-.664.64.015 1.088.327.216.589.393.85.571.284.194.568.387.936.629q.14.092.27.187c.331.236.63.448.997.414.214-.02.435-.22.547-.82.265-1.417.786-4.486.906-5.751a1.4 1.4 0 0 0-.013-.315.34.34 0 0 0-.114-.217.53.53 0 0 0-.31-.093c-.3.005-.763.166-2.984 1.09"/>
+                    </svg>
+                    <span class="contact-tooltip">Telegram</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
-</div>
-</div></div></div>
+        </div>
+      </div>
+    </div>
+    </div>
 </template>
 
 
@@ -226,6 +303,19 @@ const translations = {
   background-repeat: no-repeat;
   background-attachment: fixed;
   overflow-x: hidden;
+  position: relative;
+}
+
+.about::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.02);
+  z-index: 0;
+  pointer-events: none;
 }
 
 .about-content {
@@ -242,6 +332,8 @@ const translations = {
   background: rgba(255, 255, 255, 0.9);
   backdrop-filter: blur(10px);
   border-right: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  z-index: 1;
 }
 .about-info {
   width: 100%;
@@ -455,6 +547,8 @@ const translations = {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
   color: white;
+  position: relative;
+  z-index: 1;
 }
 .featured-project {
   margin-bottom: 3rem;
@@ -550,132 +644,199 @@ const translations = {
   font-weight: 600;
   border: 1px solid rgba(0, 212, 255, 0.3);
 }
-ul {
-  list-style: none;
-}
-.example-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.example-2 .icon-content {
-  margin: 0 10px;
-  position: relative;
-}
-.example-2 .icon-content .tooltip {
-  position: absolute;
-  top: -30px;
-  left: 50%;
-  transform: translateX(-50%);
-  color: #fff;
-  padding: 6px 10px;
-  border-radius: 5px;
-  opacity: 0;
-  visibility: hidden;
-  font-size: 14px;
-  transition: all 0.3s ease;
-}
-.example-2 .icon-content:hover .tooltip {
-  opacity: 1;
-  visibility: visible;
-  top: -50px;
-}
-.example-2 .icon-content a {
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  color: #4d4d4d;
-  background-color: #fff;
-  transition: all 0.3s ease-in-out;
-}
-.example-2 .icon-content a:hover {
-  box-shadow: 3px 2px 45px 0px rgb(0 0 0 / 12%);
-}   
-.example-2 .icon-content a svg {
-  position: relative;
-  z-index: 1;
-  width: 30px;
-  height: 30px;
-}
-.example-2 .icon-content a:hover {
-  color: white;
-}
-.example-2 .icon-content a .filled {
-  position: absolute;
-  top: auto;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  background-color: #000;
-  transition: all 0.3s ease-in-out;
-}
 
-.example-2 .icon-content a:hover .filled {
-  height: 100%;
-}
-
-.example-2 .icon-content a[data-social="linkedin"] .filled,
-.example-2 .icon-content a[data-social="linkedin"] ~ .tooltip {
-  background-color: #0274b3;
-}
-
-.example-2 .icon-content a[data-social="github"] .filled,
-.example-2 .icon-content a[data-social="github"] ~ .tooltip {
-  background-color: #24262a;
-}
-
-.example-2 .icon-content a[data-social="email"] .filled,
-.example-2 .icon-content a[data-social="email"] ~ .tooltip {
-  background-color: #ea4335;
-}
-
-.example-2 .icon-content a[data-social="telegram"] .filled,
-.example-2 .icon-content a[data-social="telegram"] ~ .tooltip {
-  background-color: #0088cc;
-}
 @media (max-width: 768px) {
   .about {
     background-attachment: scroll;
+    background-size: auto 100%;
+    background-position: center center;
+  }
+  
+  .about::before {
+    background: rgba(0, 0, 0, 0.05);
   }
   
   .about-content {
     grid-template-columns: 1fr;
     grid-template-rows: auto auto;
-    padding-top: 100px;
-    gap: 1rem;
+    padding-top: 90px;
+    gap: 0;
   }
   
   .left-section {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 2rem;
     border-right: none;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.85);
   }
   
   .right-section {
-    padding: 2rem 1.5rem;
+    padding: 2.5rem 2rem;
+    background: rgba(0, 0, 0, 0.75);
   }
   
   .about-title {
-    font-size: 2.8rem;
+    font-size: 3rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
   }
   
   .about-description {
-    font-size: 1.15rem;
+    font-size: 1.25rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
   }
   
   .skills-section h3,
   .services-section h3 {
     text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .skills-grid {
+    gap: 1.2rem;
+    max-width: 360px;
+    margin: 0 auto 3rem;
+  }
+  
+  .keycap {
+    width: 85px;
+    height: 85px;
+  }
+  
+  .keycap .letter {
+    font-size: 12px;
+    left: 10px;
+    top: 10px;
+    max-width: 65px;
+  }
+  
+  .pricing-cards {
+    gap: 1.5rem;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .card {
+    width: min(80vw, 360px);
+    height: 400px;
+    padding: 1.2rem;
+  }
+  
+  .text-title {
+    font-size: 1.4em;
+  }
+  
+  .text-body {
+    font-size: 1.1em;
+  }
+  
+  .check-list-item {
+    font-size: 1rem;
+  }
+  
+  .featured-project h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .contact-section h3 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .project-showcase {
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .project-name {
+    font-size: 2rem;
+  }
+  
+  .project-desc {
+    font-size: 1.2rem;
+  }
+  
+  .team-contacts {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .developer-card {
+    padding: 1.8rem;
+  }
+  
+  .dev-avatar {
+    width: 70px;
+    height: 70px;
+  }
+  
+  .dev-icon {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .dev-name {
+    font-size: 1.2rem;
+  }
+  
+  .dev-subtitle {
+    font-size: 0.8rem;
+  }
+  
+  .contact-item a {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .contact-item a svg {
+    width: 22px;
+    height: 22px;
+  }
+}
+
+@media (max-width: 600px) {
+  .about {
+    background-size: cover;
+    background-position: center top;
+  }
+  
+  .about::before {
+    background: rgba(0, 0, 0, 0.08);
+  }
+  
+  .about-content {
+    padding-top: 100px;
+  }
+  
+  .left-section {
+    padding: 2rem 1.5rem;
+    background: rgba(255, 255, 255, 0.8);
+  }
+  
+  .right-section {
+    padding: 2rem 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .about-title {
+    font-size: 2.6rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .about-description {
+    font-size: 1.15rem;
+    margin-bottom: 2rem;
+    padding: 0 0.5rem;
+  }
+  
+  .skills-section h3,
+  .services-section h3 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
   }
@@ -683,7 +844,7 @@ ul {
   .skills-grid {
     gap: 1rem;
     max-width: 320px;
-    margin: 0 auto 2.5rem;
+    margin-bottom: 2.5rem;
   }
   
   .keycap {
@@ -699,13 +860,11 @@ ul {
   }
   
   .pricing-cards {
-    gap: 1rem;
-    flex-direction: column;
-    align-items: center;
+    gap: 1.2rem;
   }
   
   .card {
-    width: min(85vw, 320px);
+    width: min(85vw, 330px);
     height: 380px;
     padding: 1rem;
   }
@@ -719,10 +878,14 @@ ul {
   }
   
   .check-list-item {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
-  .featured-project h3,
+  .featured-project h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
   .contact-section h3 {
     text-align: center;
     font-size: 1.8rem;
@@ -742,28 +905,65 @@ ul {
     font-size: 1.1rem;
   }
   
-  .example-2 {
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 1rem;
+  .team-contacts {
+    gap: 1.2rem;
   }
   
-  .example-2 .icon-content {
-    margin: 0 0.5rem;
+  .developer-card {
+    padding: 1.5rem;
+  }
+  
+  .dev-avatar {
+    width: 65px;
+    height: 65px;
+  }
+  
+  .dev-icon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .dev-name {
+    font-size: 1.1rem;
+  }
+  
+  .dev-subtitle {
+    font-size: 0.75rem;
+  }
+  
+  .contact-item a {
+    width: 46px;
+    height: 46px;
+  }
+  
+  .contact-item a svg {
+    width: 20px;
+    height: 20px;
   }
 }
 
 @media (max-width: 480px) {
+  .about {
+    background-size: auto 120%;
+    background-position: center 20%;
+  }
+  
+  .about::before {
+    background: rgba(0, 0, 0, 0.1);
+  }
+  
   .about-content {
-    padding-top: 120px;
+    padding-top: 110px;
   }
   
   .left-section {
     padding: 1.5rem 1rem;
+    background: rgba(255, 255, 255, 0.75);
   }
   
   .right-section {
     padding: 1.5rem 1rem;
+    background: rgba(0, 0, 0, 0.65);
   }
   
   .about-title {
@@ -806,9 +1006,9 @@ ul {
   }
   
   .card {
-    width: min(90vw, 300px);
-    height: 360px;
-    padding: 0.8em;
+    width: min(90vw, 310px);
+    height: 370px;
+    padding: 1rem;
     font-size: 0.95rem;
   }
   
@@ -821,13 +1021,18 @@ ul {
   }
   
   .check-list-item {
-    font-size: 0.8rem;
-    gap: 3px;
-    line-height: 1.4;
+    font-size: 0.85rem;
+    gap: 4px;
+    line-height: 1.5;
   }
   
-  .featured-project h3,
+  .featured-project h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.2rem;
+  }
+  
   .contact-section h3 {
+    text-align: center;
     font-size: 1.5rem;
     margin-bottom: 1.2rem;
   }
@@ -854,60 +1059,116 @@ ul {
     padding: 0.25rem 0.6rem;
   }
   
-  .example-2 {
-    gap: 0.8rem;
+  .team-contacts {
+    gap: 1rem;
   }
   
-  .example-2 .icon-content {
-    margin: 0 0.3rem;
+  .developer-card {
+    padding: 1.2rem;
   }
   
-  .example-2 .icon-content a {
-    width: 48px;
-    height: 48px;
+  .dev-avatar {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.8rem;
   }
   
-  .example-2 .icon-content a svg {
+  .dev-icon {
     width: 26px;
     height: 26px;
   }
   
-  .example-2 .icon-content .tooltip {
-    font-size: 12px;
-    padding: 4px 8px;
+  .dev-name {
+    font-size: 1rem;
+  }
+  
+  .dev-subtitle {
+    font-size: 0.7rem;
+  }
+  
+  .dev-role {
+    font-size: 0.8rem;
+  }
+  
+  .contact-item a {
+    width: 42px;
+    height: 42px;
+  }
+  
+  .contact-item a svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .contact-tooltip {
+    font-size: 11px;
+    padding: 3px 6px;
   }
 }
 
 @media (max-width: 360px) {
+  .about {
+    background-size: auto 140%;
+    background-position: center 30%;
+  }
+  
+  .about::before {
+    background: rgba(0, 0, 0, 0.12);
+  }
+  
+  .about-content {
+    padding-top: 120px;
+  }
+  
+  .left-section {
+    padding: 1.2rem 0.8rem;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  .right-section {
+    padding: 1.2rem 0.8rem;
+    background: rgba(0, 0, 0, 0.6);
+  }
+  
   .about-title {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
   }
   
   .about-description {
     font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    padding: 0 0.3rem;
+  }
+  
+  .skills-section h3,
+  .services-section h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
   }
   
   .skills-grid {
     max-width: 250px;
     gap: 0.6rem;
+    margin-bottom: 1.8rem;
   }
   
   .keycap {
-    width: 65px;
-    height: 65px;
+    width: 68px;
+    height: 68px;
   }
   
   .keycap .letter {
     font-size: 9px;
     left: 5px;
     top: 5px;
-    max-width: 55px;
+    max-width: 58px;
   }
   
   .card {
-    width: min(95vw, 280px);
-    height: 340px;
-    padding: 0.7em;
+    width: min(95vw, 290px);
+    height: 350px;
+    padding: 0.8rem;
   }
   
   .text-title {
@@ -920,6 +1181,282 @@ ul {
   
   .check-list-item {
     font-size: 0.75rem;
+    gap: 3px;
   }
+  
+  .featured-project h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .contact-section h3 {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .project-showcase {
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .project-name {
+    font-size: 1.4rem;
+  }
+  
+  .project-desc {
+    font-size: 0.9rem;
+  }
+  
+  .browser-url {
+    font-size: 0.75rem;
+  }
+  
+  .project-tech span {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .team-contacts {
+    gap: 0.8rem;
+  }
+  
+  .developer-card {
+    padding: 1rem;
+  }
+  
+  .dev-info {
+    margin-bottom: 1rem;
+  }
+  
+  .dev-avatar {
+    width: 55px;
+    height: 55px;
+    margin-bottom: 0.6rem;
+  }
+  
+  .dev-icon {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .dev-name {
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+  }
+  
+  .dev-subtitle {
+    font-size: 0.65rem;
+  }
+  
+  .dev-role {
+    font-size: 0.75rem;
+  }
+  
+  .dev-contacts {
+    gap: 0.8rem;
+  }
+  
+  .contact-item a {
+    width: 38px;
+    height: 38px;
+  }
+  
+  .contact-item a svg {
+    width: 16px;
+    height: 16px;
+  }
+  
+  .contact-tooltip {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+}
+
+.contact-section h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(45deg, #ff605c, #ffbd44, #00ca4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.team-contacts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.developer-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.developer-card:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.dev-info {
+  margin-bottom: 1.5rem;
+}
+
+.dev-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+  box-shadow: 0 8px 20px rgba(0, 212, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.developer-card:hover .dev-avatar {
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(0, 212, 255, 0.4);
+}
+
+.dev-icon {
+  width: 36px;
+  height: 36px;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.dev-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(45deg, #ff605c, #ffbd44, #00ca4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.2;
+}
+
+.dev-subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.9;
+  background: linear-gradient(45deg, #ff605c, #ffbd44, #00ca4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+}
+
+.dev-role {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.dev-contacts {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.contact-item {
+  position: relative;
+}
+
+.contact-item a {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #4d4d4d;
+  background-color: #fff;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-item a:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-item a svg {
+  position: relative;
+  z-index: 1;
+  width: 20px;
+  height: 20px;
+}
+
+.contact-filled {
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background-color: #000;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.contact-item a:hover .contact-filled {
+  height: 100%;
+}
+
+.contact-item a[data-social="linkedin"] .contact-filled {
+  background-color: #0274b3;
+}
+
+.contact-item a[data-social="github"] .contact-filled {
+  background-color: #24262a;
+}
+
+.contact-item a[data-social="email"] .contact-filled {
+  background-color: #ea4335;
+}
+
+.contact-item a[data-social="telegram"] .contact-filled {
+  background-color: #0088cc;
+}
+
+.contact-tooltip {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  visibility: hidden;
+  font-size: 12px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.contact-item:hover .contact-tooltip {
+  opacity: 1;
+  visibility: visible;
+  top: -45px;
 }
 </style>

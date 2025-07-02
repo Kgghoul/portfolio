@@ -1,6 +1,6 @@
 <script setup>
 import { inject } from 'vue'
-import heroBackgroundImage from '@/assets/dark_workspace_developer_background.webp'
+// Background image is loaded via CSS url()
 
 const { isEnglish } = inject('language')
 
@@ -207,8 +207,6 @@ const translations = {
   color: white;
 }
 
-
-
 .hero-image {
   display: flex;
   justify-content: center;
@@ -359,8 +357,6 @@ const translations = {
   font-weight: 500;
 }
 
-
-
 @media (max-width: 768px) {
   .hero {
     background-attachment: scroll;
@@ -372,36 +368,109 @@ const translations = {
   .hero-content {
     grid-template-columns: 1fr;
     text-align: center;
-    gap: 2.5rem;
-    padding: 1.5rem 1rem;
+    gap: 3rem;
+    padding: 2rem 1.5rem;
     max-width: 100%;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
   }
   
   .hero-title {
-    font-size: 2.5rem;
-    margin-bottom: 1.2rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
     line-height: 1.2;
   }
   
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     max-width: 100%;
-    margin-bottom: 2rem;
-    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    line-height: 1.7;
     padding: 0 1rem;
   }
   
   .project-card {
-    width: min(90vw, 380px);
-    height: 280px;
-    transform: skewX(3deg);
+    width: min(85vw, 420px);
+    height: 320px;
+    transform: skewX(2deg);
     margin: 0 auto;
   }
   
   .project-card:hover {
-    height: 380px;
+    height: 420px;
     transform: skew(0deg) scale(1.02);
+  }
+  
+  .card-content {
+    padding: 1rem 1.5rem;
+  }
+  
+  .card-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .project-url {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .project-tech {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.8rem;
+  }
+  
+  .hover-content p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .visit-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  .outer-btn {
+    padding: 1.2rem 2.5rem;
+    font-size: 18px;
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero-content {
+    gap: 2.5rem;
+    padding: 1.5rem 1rem;
+    margin-top: 1rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
+  .hero-title {
+    font-size: 2.4rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .project-card {
+    width: min(90vw, 380px);
+    height: 300px;
+    transform: skewX(1deg);
+  }
+  
+  .project-card:hover {
+    height: 400px;
+    transform: skew(0deg) scale(1.01);
   }
   
   .card-content {
@@ -424,19 +493,18 @@ const translations = {
   }
   
   .hover-content p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     margin-bottom: 1.2rem;
   }
   
   .visit-button {
     padding: 0.7rem 1.3rem;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .outer-btn {
     padding: 1rem 2rem;
     font-size: 16px;
-    border-radius: 16px;
   }
 }
 
@@ -446,9 +514,13 @@ const translations = {
   }
   
   .hero-content {
-    padding: 1rem 0.75rem;
+    padding: 1rem 0.8rem;
     gap: 2rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
   }
   
   .hero-title {
@@ -458,27 +530,28 @@ const translations = {
   
   .hero-subtitle {
     font-size: 1rem;
-    padding: 0 0.5rem;
-    line-height: 1.5;
+    padding: 0 0.3rem;
+    line-height: 1.6;
+    margin-bottom: 1.8rem;
   }
   
   .project-card {
-    width: min(95vw, 320px);
-    height: 250px;
-    transform: skewX(2deg);
+    width: min(95vw, 340px);
+    height: 280px;
+    transform: skewX(1deg);
   }
   
   .project-card:hover {
-    height: 350px;
+    height: 380px;
     transform: skew(0deg) scale(1.01);
   }
   
   .card-content {
-    padding: 0.6rem 1rem;
+    padding: 0.7rem 1rem;
   }
   
   .card-content h3 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     margin-bottom: 0.5rem;
   }
   
@@ -493,13 +566,13 @@ const translations = {
   }
   
   .hover-content p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     margin-bottom: 1rem;
   }
   
   .visit-button {
-    padding: 0.6rem 1.1rem;
-    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
   }
   
   .work-example {
@@ -516,31 +589,69 @@ const translations = {
 }
 
 @media (max-width: 360px) {
+  .hero-content {
+    padding: 0.8rem 0.5rem;
+    gap: 1.8rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+  
   .hero-title {
     font-size: 1.8rem;
+    margin-bottom: 0.8rem;
   }
   
   .hero-subtitle {
     font-size: 0.95rem;
-    padding: 0 0.3rem;
+    padding: 0 0.2rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
   }
   
   .project-card {
-    width: min(98vw, 300px);
-    height: 230px;
+    width: min(98vw, 320px);
+    height: 260px;
   }
   
   .project-card:hover {
-    height: 330px;
+    height: 360px;
+  }
+  
+  .card-content {
+    padding: 0.6rem 0.8rem;
   }
   
   .card-content h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+  
+  .project-url {
+    font-size: 0.75rem;
+    margin-bottom: 0.8rem;
   }
   
   .project-tech {
     font-size: 0.65rem;
     padding: 0.15rem 0.5rem;
+  }
+  
+  .hover-content p {
+    font-size: 0.85rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .visit-button {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+  
+  .work-example {
+    font-size: 0.7rem;
+    top: 0.6rem;
+    right: 0.8rem;
   }
   
   .outer-btn {
