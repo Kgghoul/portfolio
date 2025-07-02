@@ -592,7 +592,7 @@ const translations = {
   .hero-content {
     padding: 0.8rem 0.5rem;
     gap: 1.8rem;
-    margin-top: 4.5rem;
+    margin-top: 6.5rem;
   }
   
   .hero-buttons {
